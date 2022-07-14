@@ -3,7 +3,6 @@ const getAdjNeighbors = (i, j, grid, visited) => {
 
   if (i > 0 && !visited[i - 1][j]) adjNeighbors.push([i - 1, j])
   if (i < grid.length - 1 && !visited[i + 1][j]) adjNeighbors.push([i + 1, j])
-
   if (j > 0 && !visited[i][j - 1]) adjNeighbors.push([i, j - 1])
   if (j < grid[0].length - 1 && !visited[i][j + 1]) adjNeighbors.push([i, j + 1])
 
@@ -16,9 +15,7 @@ const dFS = (i, j, grid, visited) => {
   let island_size = 0
 
   while (stack.length) {
-    let curNode = stack.pop()
-
-    let [i, j] = curNode
+    const [i, j] = stack.pop()
 
     if (visited[i][j]) continue
     visited[i][j] = true
@@ -26,7 +23,7 @@ const dFS = (i, j, grid, visited) => {
     if (grid[i][j] === '0') continue
     island_size++
 
-    let adjNeighbors = getAdjNeighbors(i, j, grid, visited)
+    const adjNeighbors = getAdjNeighbors(i, j, grid, visited)
 
     stack.push(...adjNeighbors)
   }
