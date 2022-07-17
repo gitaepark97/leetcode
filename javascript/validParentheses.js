@@ -19,7 +19,8 @@ const isValid = string => {
   return stack.length === 0
 }
 
-const input = '({[]})'
+// test
+const input = '()[{}]'
 const result = true
 
-isValid(input) === result ? console.log('SUCEESS') : console.log('FAIL')
+isValid(input) == result ? console.log('SUCEESS') : console.log('FAIL')
